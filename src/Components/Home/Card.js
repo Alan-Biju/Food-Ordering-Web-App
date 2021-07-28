@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaStar, FaHeart, FaRegHeart } from 'react-icons/fa';
-import { MdDone } from 'react-icons/md';
+import { MdClear } from 'react-icons/md';
 import { useData } from '../../Context/DataProvider';
 const Card = ({ Data }) => {
 	const { setCartItems, cartItems } = useData();
@@ -17,37 +17,41 @@ const Card = ({ Data }) => {
 			setCartItems((prev) => [...prev, Data]);
 		}
 	};
-	
+const removeCartItems = () => {
+		const NewItems = cartItems.filter((Item) => {
+			return Item.id !== Data.id;
+		});
+		setCartItems(NewItems);
+	};
 	return (
-		<CardBox
-			Poster={Data.Image}
-			onClick={ cartHandler }
-			Check={isHere}>
-			<CardHeader>
-				<Rating>
-					<FaStar />
-					<span>{Data.rating}</span>
-				</Rating>
-				<Heart>
-					{isLike ? (
-						<FaHeart onClick={LikeChange} />
-					) : (
-						<FaRegHeart onClick={LikeChange} />
-					)}
-				</Heart>
-			</CardHeader>
+		<>
+			<CardBox Poster={Data.Image} onClick={cartHandler} Check={isHere}>
+				<CardHeader>
+					<Rating>
+						<FaStar />
+						<span>{Data.rating}</span>
+					</Rating>
+					<Heart>
+						{isLike ? (
+							<FaHeart onClick={LikeChange} />
+						) : (
+							<FaRegHeart onClick={LikeChange} />
+						)}
+					</Heart>
+				</CardHeader>
 
-			<CardFooter>
-				<NameTag>
-					<Name>{Data.Name}</Name>
-					<Quantities>{Data.Quantities}</Quantities>
-				</NameTag>
-				<Rate>
-					{`$${Data.Amount}`}
-					{isHere && <Checked />}
-				</Rate>
-			</CardFooter>
-		</CardBox>
+				<CardFooter>
+					<NameTag>
+						<Name>{Data.Name}</Name>
+						<Quantities>{Data.Quantities}</Quantities>
+					</NameTag>
+					<Rate>
+						{`$${Data.Amount}`}
+						{isHere && <Checked onClick={removeCartItems} />}
+					</Rate>
+				</CardFooter>
+			</CardBox>
+		</>
 	);
 };
 
@@ -59,7 +63,6 @@ const CardBox = styled.div`
 	border-radius: 10px;
 	padding: 5px;
 	background-image: url(${(prop) => prop.Poster});
-	filter: grayscale(${({ Check }) => Check ?0.7 : 0});
 	background-position: center;
 	background-size: 140px;
 	background-repeat: no-repeat;
@@ -71,8 +74,8 @@ const CardBox = styled.div`
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 	border: 2px solid ${({ Check }) => (Check ? '#71EFA3' : '#ffffff')};
 `;
-const Checked = styled(MdDone)`
-	color: #5dc486;
+const Checked = styled(MdClear)`
+	color: #ec3d3d;
 	font-size: 1.2rem;
 `;
 const CardHeader = styled.div`
@@ -80,6 +83,7 @@ const CardHeader = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	
 `;
 const Rating = styled.div`
 	width: 40px;
