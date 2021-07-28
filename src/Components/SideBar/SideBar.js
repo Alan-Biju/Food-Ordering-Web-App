@@ -56,11 +56,12 @@ const Items = styled(Link)`
 	margin: 5px 0;
 	text-decoration: none;
 	@media (max-width: 870px) {
-		width: 90%;
-		height: 30px;
+		width: 40px;
+		height: 40px;
 		padding-left: 0;
 		justify-content: center;
 		border-radius: 5px;
+		font-size: 1rem;
 	}
 	&::after {
 		content: '';
@@ -88,17 +89,17 @@ const Items = styled(Link)`
 		right: 30px;
 		width: 20px;
 		height: 20px;
-		color: #f6f6f6;
+		color: #ffffff;
 		font-weight: bold;
 		display: grid;
 		place-items: center;
-		background-color: #71efa3;
+		background-color: #38be6e;
 		border-radius: 50%;
 		@media (max-width: 870px) {
 			width: 10px;
 			height: 10px;
-			right: 2px;
-			top: 2px;
+			right: 4px;
+			top: 5px;
 			font-size: 0.5rem;
 		}
 	}

@@ -58,7 +58,6 @@ export const OrderHolder = styled.div`
 	padding-bottom: 50px;
 	@media (max-width: 500px) {
 		display: ${({ View }) => (View === 'block' ? 'flex' : 'none')};
-		pointer-events: none;
 	}
 `;
 const Header = styled.div`
