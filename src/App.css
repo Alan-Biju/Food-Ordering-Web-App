@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Raleway:ital,wght@0,300;0,600;1,400&display=swap');
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+	user-select: none;
+	/* mobile touch-action */
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	/* font-family: 'Raleway', sans-serif; */
+}
+*::-webkit-scrollbar {
+	display: none;
+
+}
