@@ -121,4 +121,15 @@ export const FoodItems = [
 		Details:
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem laborum, cumque dolorem ',
 	},
+	{
+		id: '12',
+		Name: 'chicken soup',
+		rating: '4.2',
+		Amount: '3.99',
+		Quantities: '250g',
+		Image: 'Assets/food.svg',
+		qty: 1,
+		Details:
+			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem laborum, cumque dolorem ',
+	},
 ];
